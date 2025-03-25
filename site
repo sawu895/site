@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dudaklarından Yiyeyim mi?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+        }
+        .text {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text">Dudaklarından yiyim mi?</div>
+        <img src="https://i.imgur.com/jydqgG1.jpeg" alt="Aşk Resmi">
+    </div>
+    <div class="buttons">
+        <button id="yes">Evet</button>
+        <button id="no">Hayır</button>
+    </div>
+    <h1 id="result" class="hidden">YUPPPPİİİİİ</h1>
+
+    <script>
+        const noButton = document.getElementById("no");
+        const yesButton = document.getElementById("yes");
+        const resultText = document.getElementById("result");
+
+        noButton.addEventListener("mouseover", function () {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+
+        yesButton.addEventListener("click", function () {
+            document.querySelector(".buttons").style.display = "none";
+            resultText.classList.remove("hidden");
+        });
+    </script>
+</body>
+</html>
